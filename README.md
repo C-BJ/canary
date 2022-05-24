@@ -1,5 +1,6 @@
 <div align="center">
 <h1>The Canary Programming Language</h1>
+Canary aims to be a more modern and streamlined version of C++.
 </div>
 
 ## Community
