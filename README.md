@@ -1,6 +1,6 @@
 <div align="center">
 <h1>The Jaye Programming Language</h1>
-Canary aims to be a more modern and streamlined version of C++.
+Jaye aims to be a more modern and streamlined version of C++ that changes workflow.
 </div>
 
 ## Community
