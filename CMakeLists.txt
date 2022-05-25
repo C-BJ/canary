@@ -1,3 +1,3 @@
 cmake_minimum_required(VERSION 3.22)
-project(canary)
+project(Jaye)
 set(CMAKE_CXX_STANDARD 23)
