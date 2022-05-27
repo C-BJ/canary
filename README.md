@@ -5,7 +5,7 @@ Jaye aims to be a more modern and streamlined version of C++ that changes workfl
 
 ## Community
 [Zulip](https://jaye.zulipchat.com/)  
-  - quick Q&A and idea discussion.
+  - Quick Q&A and idea discussion.
 
 [Github Disussions](https://github.com/Jaye-Lang/Jaye/discussions) 
   - Large-scale discussions around specific issues.
