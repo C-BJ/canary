@@ -1,7 +1,7 @@
-<center>
+<div align="center">
 <h1>The Jaye Programming Language</h1>
 Jaye aims to be a more modern and streamlined version of C++ that changes workflow.
-</center>
+</div>>
 
 ## Community
 [Zulip](https://jaye.zulipchat.com/)  
