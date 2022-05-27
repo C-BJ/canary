@@ -12,6 +12,7 @@ Jaye aims to be a more modern and streamlined version of C++ that changes workfl
 ## Documentation
 View project [Wiki](https://github.com/Jaye-Lang/Jaye/wiki).<br>
 To see the design plan of Jaye goto [DESIGN.md](md/DESIGN.md)
+## [Design of Jaye](https://github.com/Jaye-Lang/Jaye/blob/main/md/DESIGN.md)
 ## Contibuting
 Go and see [CONTRIBUTING.md](md/CONTRIBUTING.md) for the rules.
 ## License
