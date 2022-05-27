@@ -5,8 +5,8 @@ In Jaye functions are done differently from most other programming<br>
 languages.
 
 ```
-const main: int() = {
-    return 0
+const functions_name: i32(n: i32) = {
+    return n
 }
 ```
 
