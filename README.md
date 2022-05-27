@@ -1,7 +1,7 @@
-<div align="center">
+<center>
 <h1>The Jaye Programming Language</h1>
 Jaye aims to be a more modern and streamlined version of C++ that changes workflow.
-</div>
+</center>
 
 ## Community
 [Zulip](https://jaye.zulipchat.com/)  
@@ -9,6 +9,8 @@ Jaye aims to be a more modern and streamlined version of C++ that changes workfl
 
 [Github Disussions](https://github.com/Jaye-Lang/Jaye/discussions) 
   - Large-scale discussions around specific issues.
+## Documentation
+View project [Wiki](https://github.com/Jaye-Lang/Jaye/wiki).
 ## Contibuting
 Go and see [CONTRIBUTING.md](CONTRIBUTING.md) for the rules.
 ## License
