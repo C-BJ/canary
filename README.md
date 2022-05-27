@@ -9,5 +9,7 @@ Jaye aims to be a more modern and streamlined version of C++ that changes workfl
 
 [Github Disussions](https://github.com/Jaye-Lang/Jaye/discussions) 
   - Large-scale discussions around specific issues.
+## Contibuting
+Go and see [CONTRIBUTING.md](CONTRIBUTING.md) for the rules.
 ## License
 UPL V1.0 is like MIT+ Apache2 but more concise and does not need to choose one or the other when using.
