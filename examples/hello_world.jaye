@@ -1,5 +1,5 @@
 const std = import("std")
 
-const main = {
+const main: void() = {
     print("Hello, World")
 }
