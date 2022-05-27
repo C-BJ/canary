@@ -4,6 +4,7 @@ When making a pull request please specify the files changed<br>
 ``lexer.cpp: Updated tokens``<br>
 for more than 1 file put the directory name
 
+- All non auxiliary code of the project is placed in src
 - Please use 4 spaced tabs only
 - Do not keep unused variables
 - Refrain from adding 3rd party libraries
