@@ -162,8 +162,8 @@ impl Lexer {
                 '{' => tokens.push(Tok::new(TokKind::LBrace, "{")),
                 '}' => tokens.push(Tok::new(TokKind::RBrace, "}")),
                 ',' => tokens.push(Tok::new(TokKind::Comma, ",")),
-                ':' => tokens.push(Tok::new(TokKind::SemiColon, ":")),
-                ';' => tokens.push(Tok::new(TokKind::Comma, ";")),
+                ';' => tokens.push(Tok::new(TokKind::Semicolon, ";")),
+                '~' => tokens.push(Tok::new(TokKind::Reverse, "~")),
                 
                 // | and ||
                 '|' => {
