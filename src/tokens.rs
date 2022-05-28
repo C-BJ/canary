@@ -1,8 +1,5 @@
-#pragma once
-
-#include <string>
-
-typedef enum {
+#[derive(Debug, PartialEq, Clone)]
+pub enum TokKind {
     Identifier,   // [name]
     Integer,      // int
     Integer8,     // i8
@@ -18,11 +15,11 @@ typedef enum {
     Float64,      // f64
     Float32,      // f32
     String,       // string
+    Boolean,      // bool
 
     Structure,    // struct
     Enumerator,   // enum
     Union,        // union
-
     Constant,     // const
     Variable,     // var
     Value,        // val
@@ -65,9 +62,20 @@ typedef enum {
     GreaterEq,    // >=
     Smaller,      // <
     SmallerEq,    // <=
-} TokenKind;
+    Equal,        // ==
+}
 
-typedef struct {
-    TokenKind kind;
-    std::string literal;
-} Tokens_T;
+#[derive(Debug, PartialEq, Clone)]
+pub struct Tok {
+    pub kind: TokKind,
+    pub literal: String,
+}
+
+impl Tok {
+    pub fn new(k: TokKind, l: &str) -> Self {
+        Self {
+            kind: k,
+            literal: l.to_string(),
+        }
+    }
+}
