@@ -24,8 +24,8 @@ typedef enum {
     Union,        // union
 
     Constant,     // const
-    Let,          // let
-    Mutable,      // mut
+    Variable,     // var
+    Value,        // val
 
     If,           // if
     Else,         // else
