@@ -15,11 +15,11 @@ To see the design plan of Jaye goto [DESIGN.md](md/DESIGN.md)
 ## Contibuting
 Go and see [CONTRIBUTING.md](md/CONTRIBUTING.md) for the rules.
 ## Roadmap
-- [ ] Tokens(WIP) 
-  - Contributors: xhci and CaiBingjun
-- [ ] Lexing tokens(WIP)
-  - Contributors: xhci and CaiBingjun
-- [ ] Reading file
+- [x] Tokens(WIP) 
+  - Contributors: xhci
+- [x] Lexing tokens(WIP)
+  - Contributors: xhci
+- [x] Reading file
 - [ ] Multiline
 - [ ] Parser
 ## License
