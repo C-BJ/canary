@@ -1,0 +1,3 @@
+const main: int() = {
+    var t: i8 = 123
+}
