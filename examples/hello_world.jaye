@@ -1,5 +1,6 @@
 const std = import("std")
 
-const main: void() = {
+const main: i32() = {
     print("Hello, World")
+    return 0
 }
