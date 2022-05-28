@@ -1,5 +1,6 @@
 #[derive(Debug, PartialEq, Clone)]
 pub enum TokKind {
+    
     Identifier,   // [name]
     Integer,      // int
     Integer8,     // i8
@@ -31,6 +32,7 @@ pub enum TokKind {
     Default,      // default
     For,          // for
     While,        // while
+    Loop,         // Loop
     Return,       // return
 
     Assign,       // =
@@ -38,10 +40,12 @@ pub enum TokKind {
     Minus,        // -
     Mul,          // *
     Divide,       // /
+    Mod,          // %
     PlusAssign,   // +=
     MinusAssign,  // -=
     MulAssign,    // *=
     DivideAssign, // /=
+    MODAssign,    // %=
 
     LParen,       // (
     RParen,       // )
@@ -51,16 +55,27 @@ pub enum TokKind {
     RBrace,       // }
     Comma,        // ,
     SemiColon,    // :
+    Semicolon,    // ;
 
-    Pipe,         // |
-    DoublePipe,   // ||
-    And,          // &
-    DoubleAnd,    // &&
     Not,          // !
-    NotEqual,     // !=
+    Pipe,         // |
     Greater,      // >
-    GreaterEq,    // >=
     Smaller,      // <
+    And,          // &
+    Power,        // ^
+    Reverse,      // ~
+    ShiftLeft,    // <<
+    ShiftRight,   // >>
+
+
+
+    DoublePipe,   // ||
+    DoubleAnd,    // &&
+    PowerEq,      // ^=
+    ShiftLeftEq,  // <<=
+    ShiftRightEq, // >>=
+    NotEq,        // !=
+    GreaterEq,    // >=
     SmallerEq,    // <=
     Equal,        // ==
 }

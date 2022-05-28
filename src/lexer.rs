@@ -81,25 +81,77 @@ impl Lexer {
                         self.current -= 1;
                     }
                 }
-                // > and >=
-                '>' => {
+                // % and %=
+                '%' => {
                     self.current += 1;
                     if self.get_char() == '=' {
-                        tokens.push(Tok::new(TokKind::GreaterEq, "<="));
+                        tokens.push(Tok::new(TokKind::MODAssign, "%="));
                     } else {
-                        tokens.push(Tok::new(TokKind::Greater, ">"));
+                        tokens.push(Tok::new(TokKind::Mod, "%"));
                         self.current -= 1;
                     }
                 }
-                // < and <=
-                '<' => {
+                // ! and !=
+                '!' => {
                     self.current += 1;
                     if self.get_char() == '=' {
-                        tokens.push(Tok::new(TokKind::SmallerEq, "<="));
+                        tokens.push(Tok::new(TokKind::NotEq, "!="));
                     } else {
-                        tokens.push(Tok::new(TokKind::Smaller, "<"));
+                        tokens.push(Tok::new(TokKind::Not, "!"));
                         self.current -= 1;
                     }
+                }
+                // ^ and ^=
+                '^' => {
+                    self.current += 1;
+                    if self.get_char() == '=' {
+                        tokens.push(Tok::new(TokKind::PowerEq, "^="));
+                    } else {
+                        tokens.push(Tok::new(TokKind::Power, "^"));
+                        self.current -= 1;
+                    }
+                }
+                // << and <<= and < and <=
+                '<' => {
+                    self.current += 1;
+                    if self.get_char() == '<' {
+                        self.current += 1;
+                        if self.get_char() == '=' {
+                            tokens.push(Tok::new(TokKind::ShiftLeftEq, "<<="));
+                        } else {
+                            tokens.push(Tok::new(TokKind::ShiftLeft, "<<"));
+                            self.current -= 1;
+                        }
+                    } else {
+                        if self.get_char() == '=' {
+                            tokens.push(Tok::new(TokKind::SmallerEq, "<="));
+                        } else {
+                            tokens.push(Tok::new(TokKind::Smaller, "<"));
+                            self.current -= 1;
+                        }
+                    }
+                    
+                }
+                // >> and >>= and > and >=
+                '>' => {
+                    self.current += 1;
+                    if self.get_char() == '>' {
+                        self.current += 1;
+                        if self.get_char() == '=' {
+                            tokens.push(Tok::new(TokKind::ShiftRightEq, ">>="));
+                        } else {
+                            tokens.push(Tok::new(TokKind::ShiftRight, ">>"));
+                            self.current -= 1;
+                        }
+                    } else {
+                        if self.get_char() == '=' {
+                            tokens.push(Tok::new(TokKind::GreaterEq, ">="));
+                        } else {
+                            tokens.push(Tok::new(TokKind::Greater, ">"));
+                            self.current -= 1;
+                        }
+                    }
+                    
                 }
 
 
@@ -109,8 +161,9 @@ impl Lexer {
                 ']' => tokens.push(Tok::new(TokKind::LSqParen, "]")),
                 '{' => tokens.push(Tok::new(TokKind::LBrace, "{")),
                 '}' => tokens.push(Tok::new(TokKind::RBrace, "}")),
-                ':' => tokens.push(Tok::new(TokKind::SemiColon, ":")),
                 ',' => tokens.push(Tok::new(TokKind::Comma, ",")),
+                ':' => tokens.push(Tok::new(TokKind::SemiColon, ":")),
+                ';' => tokens.push(Tok::new(TokKind::Comma, ";")),
                 
                 // | and ||
                 '|' => {
@@ -205,6 +258,7 @@ impl Lexer {
                         "else" => tokens.push(Tok::new(TokKind::Else, "else")),             
                         "for" => tokens.push(Tok::new(TokKind::For, "for")),
                         "while" => tokens.push(Tok::new(TokKind::While, "while")),
+                        "loop" => tokens.push(Tok::new(TokKind::Loop, "loop")),
                         "switch" => tokens.push(Tok::new(TokKind::Switch, "switch")),       
                         "break" => tokens.push(Tok::new(TokKind::Break, "break")),          
                         "default" => tokens.push(Tok::new(TokKind::Default, "default")),    

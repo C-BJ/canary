@@ -6,8 +6,8 @@ mod tokens;
 mod lexer;
 
 fn usage() {
-    println!("usage: jaye [help, run] [file]");
-    println!("Run \"jaye help\" for more");
+    println!("usage: Jaye [help, run] [file]");
+    println!("Run \"Jaye help\" for more");
     std::process::exit(0x0000);
 }
 
