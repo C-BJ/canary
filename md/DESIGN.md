@@ -17,6 +17,10 @@ const main: void() = {}      // Constant
 var radius: i8 = 45          // Like let mut
 val pi: float = 3.14159265   // Like let
 ```
+You can also enable type inference on a varaible like this
+```
+var radius := 45
+```
 
 ## Datatypes
 In Jaye we do a mix of Go style and Rust style datatypes.
