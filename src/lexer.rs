@@ -197,7 +197,9 @@ impl Lexer {
 
                     tokens.push(Tok::new(TokKind::String, &buf[..]));
                 }
-                
+               
+                // _
+                '_' => tokens.push(Tok::new(TokKind::Placeholder, "_")),
 
 
                 // Detecting numbers

@@ -54,6 +54,7 @@ pub enum TokKind {
     RBrace,       // }
     Comma,        // ,
     Semicolon,    // ;
+    Placeholder,  // _
 
     Not,          // !
     Pipe,         // |
