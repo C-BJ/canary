@@ -1,6 +1,6 @@
-/* Titan Programming Language
+/* Jaye Programming Language
  * lexer.rs  -  Lexes the input string into tokens
- * MIT Licence see on LICENCE.md for more info.
+ * UPL v1.0 Licence see on LICENCE for more .
  */
 
 use crate::tokens::*;
