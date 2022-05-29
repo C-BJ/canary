@@ -13,7 +13,7 @@ const function_name: i32(n: i32) = {
 ## Variables
 In Jaye there is 3 ways of creating variables
 ```
-const main: void() = {}      // Constant
+const main: void() = {}      // Constant (type must be indicated)
 var radius: i8 = 45          // Like let mut in Rust
 val pi: float = 3.14159265   // Like val in Kotlin
 ```
