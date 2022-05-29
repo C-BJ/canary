@@ -20,7 +20,6 @@ pub enum TokKind {
 
     Structure,    // struct
     Enumerator,   // enum
-    Union,        // union
     Constant,     // const
     Variable,     // var
     Value,        // val
