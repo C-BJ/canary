@@ -54,7 +54,7 @@ pub enum TokKind {
     LBrace,       // {
     RBrace,       // }
     Comma,        // ,
-    Semicolon,    // ;
+    Colon,        // :
     Placeholder,  // _
 
     Not,          // !

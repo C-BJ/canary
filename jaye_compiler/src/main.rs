@@ -3,6 +3,8 @@ use std::fs;
 
 mod tokens;
 mod lexer;
+mod parser;
+mod statements;
 
 fn usage() {
     println!("usage: jaye [help, run] [file]");
@@ -33,7 +35,7 @@ fn main() {
                 .expect("Something went wrong reading the file");
 
             let mut lexer = lexer::Lexer::new(contents);
-            lexer.lex();
+            parser::Parser::parse(lexer.lex());
         },
 
         _ => usage(),
