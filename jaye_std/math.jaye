@@ -1,0 +1,86 @@
+// Jaye Programming Language
+// math.jaye - Maths functions for Jaye
+
+const acos: float(float x) = {
+
+}
+
+const asin: float(float x) = {
+
+}
+
+const atan: float(float x) = {
+
+}
+
+const atanTwo: float(float y, float x) = {
+
+}
+
+const cos: float(float x) = {
+
+}
+
+const cosh: float(float x) = {
+
+}
+
+const sin: float(float x) = {
+
+}
+
+const sinh: float(float x) = {
+
+}
+
+const tanh: float(float x) = {
+
+}
+
+const exp: float(float x) = {
+
+}
+
+const frexp: float(float x, int exp) = {
+
+}
+
+const ldexp: float(float x, int exp) = {
+
+}
+
+const log: float(float x) = {
+
+}
+
+const logTen: float(float x) = {
+
+}
+
+const modf: float(float x, float integer) = {
+
+}
+
+const power: float(float x, float y) = {
+
+}
+
+const sqrt: float(float x) = {
+
+}
+
+const ceil: float(float x) = {
+
+}
+
+const fabs: float(float x) = {
+
+}
+
+const floor: float(float x) = {
+
+}
+
+const fmod: float(float x, float y) = {
+
+}
