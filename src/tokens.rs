@@ -1,6 +1,7 @@
 #[derive(Debug, PartialEq, Clone)]
 pub enum TokKind {
-    
+    NEWLINE,      // Use for identifing new lines in code
+
     Identifier,   // [name]
     Integer,      // int
     Integer8,     // i8

@@ -1,6 +1,5 @@
 use std::env;
-use std::fs::File;
-use std::io::{BufRead, BufReader};
+use std::fs;
 
 mod tokens;
 mod lexer;
@@ -30,14 +29,11 @@ fn main() {
     match &args[1][..] {
         "help" => help(),
         "run" => {
-            let file = File::open(&args[2]).unwrap();
-            let reader = BufReader::new(file);
+            let contents = fs::read_to_string(&args[2])
+                .expect("Something went wrong reading the file");
 
-            for (index, line) in reader.lines().enumerate() {
-                let line = line.unwrap(); 
-                let mut lexer = lexer::Lexer::new(line);
-                lexer.lex();
-            }
+            let mut lexer = lexer::Lexer::new(contents);
+            lexer.lex();
         },
 
         _ => usage(),

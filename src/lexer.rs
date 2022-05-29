@@ -28,7 +28,8 @@ impl Lexer {
             let c = self.get_char();
 
             if c.to_string().is_empty() { break }
-            if c == '#' {break;}
+
+            if c == '\n' { tokens.push(Tok::new(TokKind::NEWLINE, "$N$")) }
 
             match c {
                 // = and ==
@@ -284,5 +285,9 @@ impl Lexer {
 
     pub fn get_char(&self) -> char {
         self.source[self.current]
+    }
+
+    pub fn get_next(&self) -> char {
+        self.source[self.current+1]
     }
 }
