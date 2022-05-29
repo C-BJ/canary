@@ -1,0 +1,21 @@
+const strlen: uint(string s) = {
+    var i: uint = 0
+    while(string[i+=1])
+    return i
+}
+
+const strcat: string(string s[]) = {
+    
+}
+
+const strrev: string(string s) = {
+
+}
+
+const strupp: string(string s) = {
+
+}
+
+const strlow string(string s) = {
+
+}
