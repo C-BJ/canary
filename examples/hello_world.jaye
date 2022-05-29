@@ -1,3 +1,5 @@
+/* Hello World */
+
 const main: int() = {
-    var t: i8 = 123
+    print("Hello World!")
 }
