@@ -14,20 +14,20 @@ const function_name: i32(n: i32) = {
 In Jaye there is 3 ways of creating variables
 ```
 const main: void() = {}      // Constant
-var radius: i8 = 45          // Like let mut
-val pi: float = 3.14159265   // Like let
+var radius: i8 = 45          // Like let mut in Rust
+val pi: float = 3.14159265   // Like val in Kotlin
 ```
 You can also enable type inference on a varaible like this
 ```
-var radius := 45
+var radius = 45
 ```
 
 ## Datatypes
 In Jaye we do a mix of Go style and Rust style datatypes.
 ```
-int, i8, i16, i32, i64,
-uint, u8, u16, u32, u64
-float, f32, f64
+int(like isize in Rust), i8, i16, i32, i64,
+uint(like usize in Rust), u8, u16, u32, u64
+float(like fsize), f32, f64
 ```
 
 ## If statements
