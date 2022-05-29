@@ -43,3 +43,14 @@ val result: int = if(1 == 1) {
     //else thing......
 }
 ```
+
+## Switch statements
+In Jaye switch statements are very similar to C and Go.
+```
+val c: int = 123
+switch(c) {
+    321: print("not 123")
+    231: print("not 123")
+    123: print("is 123")
+}
+```
