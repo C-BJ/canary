@@ -1,0 +1,7 @@
+const print: void(string buf) = {
+
+}
+
+const input: string(string p) = {
+
+} 
