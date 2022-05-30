@@ -1,6 +1,10 @@
+/* Certain symbols removed due to this being new
+ * just DM me to add them for you */
+
 #[derive(Debug, PartialEq, Clone)]
 pub enum TokKind {
-    NEWLINE,      // Use for identifing new lines in code
+    NewLine,      // Use for identifing new lines in code
+    Space,        // Use for identifing spaces in code
 
     Identifier,   // [name]
     Integer,      // int
@@ -32,65 +36,47 @@ pub enum TokKind {
     Default,      // default
     For,          // for
     While,        // while
-    Loop,         // Loop
+    Loop,         // loop
     Return,       // return
 
-    Assign,       // =
-    Plus,         // +
-    Minus,        // -
-    Mul,          // *
-    Divide,       // /
-    Mod,          // %
-    PlusAssign,   // +=
-    MinusAssign,  // -=
-    MulAssign,    // *=
-    DivideAssign, // /=
-    MODAssign,    // %=
+    Assign,       // = 
+    Plus,         // + 
+    Minus,        // - 
+    Mul,          // * 
+    Divide,       // /  
+    Mod,          // % 
+    PlusAssign,   // += 
+    MinusAssign,  // -= 
+    MulAssign,    // *=  
+    DivideAssign, // /=  
+    ModAssign,    // %=  
 
-    LParen,       // (
-    RParen,       // )
-    LSqParen,     // [
-    RSqParen,     // ]
-    LBrace,       // {
-    RBrace,       // }
-    Comma,        // ,
-    Colon,        // :
-    Placeholder,  // _
+    LParen,       // ( 
+    RParen,       // )  
+    LSqParen,     // [ 
+    RSqParen,     // ]  
+    LBrace,       // { 
+    RBrace,       // } 
+    Comma,        // , 
+    Colon,        // : 
+    Placeholder,  // _ 
 
-    Not,          // !
-    Pipe,         // |
-    Greater,      // >
-    Smaller,      // <
-    And,          // &
-    Power,        // ^
-    Reverse,      // ~
-    ShiftLeft,    // <<
-    ShiftRight,   // >>
+    Not,          // ! 
+    Pipe,         // | 
+    Greater,      // > 
+    Smaller,      // < 
+    And,          // & 
 
-
-
-    DoublePipe,   // ||
-    DoubleAnd,    // &&
-    PowerEq,      // ^=
-    ShiftLeftEq,  // <<=
-    ShiftRightEq, // >>=
-    NotEq,        // !=
-    GreaterEq,    // >=
-    SmallerEq,    // <=
-    Equal,        // ==
+    DoublePipe,   // || 
+    DoubleAnd,    // && 
+    NotEq,        // != 
+    GreaterEq,    // >= 
+    SmallerEq,    // <= 
+    Equal,        // == 
 }
 
 #[derive(Debug, PartialEq, Clone)]
-pub struct Tok {
+pub struct Tok<'a> {
     pub kind: TokKind,
-    pub literal: String,
-}
-
-impl Tok {
-    pub fn new(k: TokKind, l: &str) -> Self {
-        Self {
-            kind: k,
-            literal: l.to_string(),
-        }
-    }
+    pub lit: &'a str,
 }

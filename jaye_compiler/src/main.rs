@@ -2,42 +2,36 @@ use std::env;
 use std::fs;
 
 mod tokens;
-mod lexer;
-mod parser;
-mod statements;
+mod lexerx;
 
-fn usage() {
-    println!("usage: jaye [help, run] [file]");
+fn usage(s: i32) {
+    println!("usage: jaye [--verbose] [usage, run] [file]");
     println!("Run \"jaye help\" for more");
-    std::process::exit(0x0000);
+    std::process::exit(s);
 }
 
-fn help() {
-    println!("Jaye Help");
-    println!("==================");
-    println!("run  - If you supply a file it run that file.");
-    println!("help - Explains the commands.");
-
-    std::process::exit(0x0000);
-}
 
 fn main() {
     let args: Vec<String> = env::args().collect();
 
     if args.len() < 2 {
-        usage();
+        usage(1);
     }
 
     match &args[1][..] {
-        "help" => help(),
+        "usage" => usage(0),
+
         "run" => {
             let contents = fs::read_to_string(&args[2])
-                .expect("Something went wrong reading the file");
+                .expect("Unable to open file for reading!");
 
-            let mut lexer = lexer::Lexer::new(contents);
-            parser::Parser::parse(lexer.lex());
+            let mut lexer = lexerx::Lexer::new(contents);
+
+            println!("{:?}", lexer.lex());
         },
 
-        _ => usage(),
+        "--verbose" => (),
+
+        _ => usage(1),
     }
 }
