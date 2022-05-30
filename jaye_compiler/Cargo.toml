@@ -1,5 +1,5 @@
 [package]
-name = "jaye"
+name = "jaye_compiler"
 version = "0.0.1"
 edition = "2021"
 
