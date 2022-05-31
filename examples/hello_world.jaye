@@ -1,4 +1,4 @@
-/* Hello World */
+// Hello World
 
 const main: int() = {
     print("Hello World!")
