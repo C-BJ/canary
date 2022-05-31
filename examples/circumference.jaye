@@ -1,18 +1,18 @@
 const std = import("std")
 
 const main: int() = {
-    let pi: float = 3.14159
+    const PI: float = 3.14159
 
     print("1. Circumference")
     print("2. Radius")
-    let type = read(">> ")
+    val type: i8 = read(">> ")
 
     if(type == "1") {
-        let mut d: i64 = read(">> ")
-        print("The answer is: ", pi*d)
+        val d: i64 = read(">> ")
+        print("The answer is: ", PI*d)
     } else if(type == 2) {
-        let mut r: i64 = read(">> ")
-        print("The answer is: ", (2*pi)*r)
+        val r: i64 = read(">> ")
+        print("The answer is: ", (2*PI)*r)
     } else {
         print("Not a valid option.")
     }
