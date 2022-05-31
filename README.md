@@ -1,7 +1,6 @@
 ![default-monochrome](https://user-images.githubusercontent.com/76793908/171175686-a529d21c-4c64-4d6f-a22a-233b26f76e04.svg)
 <div align="center">
 <h1>The Jaye Programming Language</h1>
-Jaye aims to be a more modern and streamlined version of C++ that changes workflow.
 </div>
 
 ## Community
