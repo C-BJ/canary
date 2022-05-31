@@ -16,9 +16,11 @@ impl Lexer {
     }
 
     pub fn lex(&mut self) -> Vec<Tok> {
-        let mut tokens = Vec::<Tok>::new();   // Stores generated tokens
+        let mut tk = Vec::<Tok>::new();   // Stores generated tokens
         
         loop {
+            let mut buf = String::new();
+
             if self.pos > self.src.len()-1 { break }
 
             if self.src[self.pos] == '/' && self.src[self.next] == '/' {
@@ -28,89 +30,92 @@ impl Lexer {
             }
 
             if self.src[self.pos] == '\n' {
-                tokens.push(Tok{kind: TokKind::NewLine, lit: "$N$"});
+                tk.push(Tok{kind: TokKind::NewLine, lit: "$N$"});
             }
 
-            let token: Tok = match self.src[self.pos] {
+            match self.src[self.pos] {
                 '=' => { if self.src[self.next] == '=' {
                             self.advance();
-                            Tok{kind: TokKind::Equal, lit: "=="}
-                         } else { Tok{kind: TokKind::Assign, lit: "="} } }
+                            tk.push(Tok{kind: TokKind::Equal, lit: "=="})
+                         } else { tk.push(Tok{kind: TokKind::Assign, lit: "="}) } }
 
                 '+' => { if self.src[self.next] == '=' {
                             self.advance();
-                            Tok{kind: TokKind::PlusAssign, lit: "+="}
-                         } else { Tok{kind: TokKind::Plus, lit: "+"} } }
+                            tk.push(Tok{kind: TokKind::PlusAssign, lit: "+="})
+                         } else { tk.push(Tok{kind: TokKind::Plus, lit: "+"}) } }
 
                 '-' => { if self.src[self.next] == '=' {
                             self.advance();
-                            Tok{kind: TokKind::MinusAssign, lit: "-="}
-                         } else { Tok{kind: TokKind::Minus, lit: "-"} } }
+                            tk.push(Tok{kind: TokKind::MinusAssign, lit: "-="})
+                         } else { tk.push(Tok{kind: TokKind::Minus, lit: "-"}) } }
 
                 '/' => { if self.src[self.next] == '=' {
                             self.advance();
-                            Tok{kind: TokKind::DivideAssign, lit: "/="}
-                         } else { Tok{kind: TokKind::Divide, lit: "/"} } }
+                            tk.push(Tok{kind: TokKind::DivideAssign, lit: "/="})
+                         } else { tk.push(Tok{kind: TokKind::Divide, lit: "/"}) } }
 
                 '*' => { if self.src[self.next] == '=' {
                             self.advance();
-                            Tok{kind: TokKind::MulAssign, lit: "*="}
-                         } else { Tok{kind: TokKind::Mul, lit: "*"} } }
+                            tk.push(Tok{kind: TokKind::MulAssign, lit: "*="})
+                         } else { tk.push(Tok{kind: TokKind::Mul, lit: "*"}) } }
 
                 '>' => { if self.src[self.next] == '=' {
                             self.advance();
-                            Tok{kind: TokKind::GreaterEq, lit: ">="}
-                         } else { Tok{kind: TokKind::Greater, lit: ">"} } }
+                            tk.push(Tok{kind: TokKind::GreaterEq, lit: ">="})
+                         } else { tk.push(Tok{kind: TokKind::Greater, lit: ">"}) } }
                 '<' => { if self.src[self.next] == '=' {
                             self.advance();
-                            Tok{kind: TokKind::SmallerEq, lit: "<="}
-                         } else { Tok{kind: TokKind::Smaller, lit: "<"} } }
+                            tk.push(Tok{kind: TokKind::SmallerEq, lit: "<="})
+                         } else { tk.push(Tok{kind: TokKind::Smaller, lit: "<"}) } }
 
 
                 '%' => { if self.src[self.next] == '=' {
                             self.advance();
-                            Tok{kind: TokKind::ModAssign, lit: "%="}
-                         } else { Tok{kind: TokKind::Mod, lit: "%"} } }
+                            tk.push(Tok{kind: TokKind::ModAssign, lit: "%="})
+                         } else { tk.push(Tok{kind: TokKind::Mod, lit: "%"}) } }
 
 
-                '(' => Tok{kind: TokKind::LParen, lit: "("},
-                ')' => Tok{kind: TokKind::RParen, lit: ")"},
-                '[' => Tok{kind: TokKind::LSqParen, lit: "["},
-                ']' => Tok{kind: TokKind::RSqParen, lit: "]"},
-                '{' => Tok{kind: TokKind::LBrace, lit: "{"},
-                '}' => Tok{kind: TokKind::RBrace, lit: "}"},
-                ':' => Tok{kind: TokKind::Colon, lit: ":"},
-                ',' => Tok{kind: TokKind::Comma, lit: ","},
-                '_' => Tok{kind: TokKind::Placeholder, lit: "_"},
+                '(' => tk.push(Tok{kind: TokKind::LParen, lit: "("}),
+                ')' => tk.push(Tok{kind: TokKind::RParen, lit: ")"}),
+                '[' => tk.push(Tok{kind: TokKind::LSqParen, lit: "["}),
+                ']' => tk.push(Tok{kind: TokKind::RSqParen, lit: "]"}),
+                '{' => tk.push(Tok{kind: TokKind::LBrace, lit: "{"}),
+                '}' => tk.push(Tok{kind: TokKind::RBrace, lit: "}"}),
+                ':' => tk.push(Tok{kind: TokKind::Colon, lit: ":"}),
+                ',' => tk.push(Tok{kind: TokKind::Comma, lit: ","}),
+                '_' => tk.push(Tok{kind: TokKind::Placeholder, lit: "_"}),
 
                 '!' => { if self.src[self.next] == '=' {
                             self.advance();
-                            Tok{kind: TokKind::NotEq, lit: "!="}
-                         } else { Tok{kind: TokKind::Not, lit: "!"} } }
+                            tk.push(Tok{kind: TokKind::NotEq, lit: "!="})
+                         } else { tk.push(Tok{kind: TokKind::Not, lit: "!"}) } }
 
                 '|' => { if self.src[self.next] == '|' {
                             self.advance();
-                            Tok{kind: TokKind::DoublePipe, lit: "||"}
-                         } else { Tok{kind: TokKind::Pipe, lit: "|"} } }
+                            tk.push(Tok{kind: TokKind::DoublePipe, lit: "||"})
+                         } else { tk.push(Tok{kind: TokKind::Pipe, lit: "|"}) } }
                 
                 '&' => { if self.src[self.next] == '&' {
                             self.advance();
-                            Tok{kind: TokKind::DoubleAnd, lit: "&&"}
-                         } else { Tok{kind: TokKind::And, lit: "&"} } }
-                
+                            tk.push(Tok{kind: TokKind::DoubleAnd, lit: "&&"})
+                         } else { tk.push(Tok{kind: TokKind::And, lit: "&"}) } }
+
                 _ if self.src[self.pos].is_alphabetic() => {
-                    Tok{kind: TokKind::Identifier, lit: "f"}
+                    while self.src[self.pos].is_alphabetic() {
+                        buf.push(self.src[self.pos]);
+                        self.advance();
+                    }
+                    tk.push(Tok{kind: TokKind::Identifier, lit: buf.as_str().clone()});
+                    println!("{:?}", buf);
                 }
 
-
-                _ => Tok{kind: TokKind::Space, lit: "$S$"},
+                _ => tk.push(Tok{kind: TokKind::Space, lit: "$S$"}),
             };
 
-            tokens.push(token);
             self.advance();
         }
 
-        return tokens
+        return tk
     }
 
     pub fn advance(&mut self) {

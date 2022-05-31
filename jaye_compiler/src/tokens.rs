@@ -1,27 +1,13 @@
-/* Certain symbols removed due to this being new
- * just DM me to add them for you */
-
 #[derive(Debug, PartialEq, Clone)]
 pub enum TokKind {
     NewLine,      // Use for identifing new lines in code
     Space,        // Use for identifing spaces in code
 
     Identifier,   // [name]
-    Integer,      // int
-    Integer8,     // i8
-    Integer16,    // i16 
-    Integer32,    // i32
-    Integer64,    // i64
-    UInteger,     // uint
-    UInteger8,    // u8
-    UInteger16,   // u16
-    UInteger32,   // u32
-    UInteger64,   // u64
-    Float,        // float
-    Float64,      // f64
-    Float32,      // f32
+    Number,       // float, int, uint, double
     String,       // string
     Boolean,      // bool
+    Function,     // fn
 
     Structure,    // struct
     Enumerator,   // enum
@@ -76,7 +62,16 @@ pub enum TokKind {
 }
 
 #[derive(Debug, PartialEq, Clone)]
-pub struct Tok<'a> {
+pub struct Tok {
     pub kind: TokKind,
-    pub lit: &'a str,
+    pub lit: String,
+}
+
+impl Tok {
+    pub fn new(k: TokKind, l: &str) -> Self {
+        Self {
+            kind: k,
+            lit: l.to_string(),
+        }
+    }
 }
