@@ -39,8 +39,7 @@ if(1 == 1) {
 }
 
 val result: int = if(1 == 1) {
-    _ = 1+1
-    //else thing......
+    _ = 1+1  //Last line
 }
 ```
 
