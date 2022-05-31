@@ -1,0 +1,37 @@
+# Jaye Compiler Selfhosted
+# Under the UPL License 1.0
+
+import("env")
+import("fs")
+
+import("lexer.jaye")
+
+const usage: void(s: int) = {
+    print("usage: jayec [usage, run] [file]")
+    print("Use \"jayec usage\" for more info")
+    exit(s)
+}
+
+const main: int() = {
+    val args: vec<string> = envGetArgs()
+
+    if(length(args) == 0) {
+        usage(1)
+    } else {
+        switch(args[0]) {
+            "usage": usage(0)
+            
+            "run": {
+                val contents: string = fsReadFile(args[1])
+                var lexer: Lexer = lexerNew(contents)
+                var toks = lex(lexer)
+
+                print("{}", toks)
+            }
+
+            default: usage(1)
+        }
+    }
+
+    return 0
+}
